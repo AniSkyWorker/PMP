@@ -3,7 +3,7 @@ header('Content-Type: text/html');
 
 const ARG_COUNT = 3;
 
-function GetParamFromGetRequest($arg_name)
+function getParamFromGetRequest($arg_name)
 {
     if(isset($_GET[$arg_name]))
     {
@@ -13,7 +13,7 @@ function GetParamFromGetRequest($arg_name)
     throw new InvalidArgumentException($arg_name);
 }
 
-function GetNumberFromGetRequest($arg_name)
+function getNumberFromGetRequest($arg_name)
 {
     $number = GetParamFromGetRequest($arg_name);
     if(is_numeric($number))
@@ -23,7 +23,7 @@ function GetNumberFromGetRequest($arg_name)
     throw new UnexpectedValueException($arg_name);
 }
 
-function CalculateResult($operationType, $firstNumber, $secondNumber)
+function calculateResult($operationType, $firstNumber, $secondNumber)
 {
     switch($operationType)
     {
@@ -52,9 +52,9 @@ try
         throw new Exception('Usage: arg1 agr2 operation<br>arg1,arg2:numbers operation(add/mul/div/sub)');
     }
 
-    echo CalculateResult(GetParamFromGetRequest('operation')
-                ,GetNumberFromGetRequest('arg1')
-                ,GetNumberFromGetRequest('arg2'));
+    echo calculateResult(getParamFromGetRequest('operation')
+                ,getNumberFromGetRequest('arg1')
+                ,getNumberFromGetRequest('arg2'));
 }
 catch (InvalidArgumentException $e)
 {
