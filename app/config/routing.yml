@@ -1,5 +1,5 @@
 lab:
-    resource: "@LabBundle/Controller"
+    resource: "@LabBundle/Controller/"
     type: annotation
 
 app:
